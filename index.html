@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Popup Generator</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <a href="#app-main" class="skip-link">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">팝업 HTML 생성기</h1>
+      <p class="site-desc">
+        팝업 링크와 이미지 경로를 입력하면 기존 팝업 구조를 유지한 전체 코드를 자동으로 생성합니다.
+        링크 주소가 비어 있으면 자동으로 <code>#none</code>이 들어갑니다.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">기존 팝업 구조 유지</span>
+        <span class="badge">전체 코드 한 번에 출력</span>
+        <span class="badge">새창 열기 접근성 반영</span>
+        <span class="badge">드래그 기능 제거</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="app-main" class="container layout-section">
+    <section class="tool-panel" aria-labelledby="input-panel-title">
+      <h2 id="input-panel-title" class="panel-title">팝업 입력</h2>
+      <p class="panel-desc">
+        팝업별 링크 주소, 이미지 경로, 새창 열기 여부를 입력해 주세요.
+      </p>
+
+      <div id="popupItemList" class="popup-item-list"></div>
+
+      <div class="button-row top-action-row">
+        <button type="button" id="addPopupBtn">팝업 추가</button>
+        <button type="button" id="generateBtn" class="btn-secondary">코드 생성</button>
+        <button type="button" id="resetBtn" class="btn-light">전체 초기화</button>
+      </div>
+
+      <div id="statusBox" class="status-box" aria-live="polite">
+        입력 후 <strong>코드 생성</strong> 버튼을 눌러주세요.
+      </div>
+    </section>
+
+    <section class="content-card output-card layout-section" aria-labelledby="output-title">
+      <h2 id="output-title" class="panel-title">전체 코드 출력</h2>
+      <p class="panel-desc">
+        HTML, CSS, JavaScript가 포함된 전체 코드를 한 번에 복사할 수 있습니다.
+      </p>
+
+      <div class="button-row">
+        <button type="button" id="copyAllBtn">전체 코드 복사</button>
+      </div>
+
+      <label class="field-block">
+        <textarea id="allOutput" class="output-textarea" readonly></textarea>
+      </label>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">팝업 구조는 고정하고 링크, 이미지 경로, 새창 여부만 바꾸는 운영형 생성기입니다.</p>
+      <p class="footer-text">링크 주소가 비어 있으면 자동으로 <code>#none</code>이 출력됩니다.</p>
+    </div>
+  </footer>
+
+  <script src="./src/basic.js"></script>
+</body>
+</html>
